@@ -113,12 +113,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     print("Data: \(utf8Text)") // original server data as UTF8 string
                 }
                 
-                let fiveDayWeather = Mapper<WeatherFiveDay>().map(JSONObject: responseJSON)
-                let date = fiveDayWeather?.date
-                let maxTemp = fiveDayWeather?.maxTemp
-                let minTemp = fiveDayWeather?.minTemp
-                print("THIS IS THE MAXTEMP \(maxTemp)")
-                print("THIS IS THE MAXTEMP \(minTemp)")
+                let fiveDayWeather = Mapper<Forecast>().map(JSONObject: responseJSON)
+                print(fiveDayWeather!)
+//                let date = fiveDayWeather?.date
+//                let maxTemp = fiveDayWeather?.maxTemp
+//                let minTemp = fiveDayWeather?.minTemp
+//                print("THIS IS THE MAXTEMP \(maxTemp)")
+//                print("THIS IS THE MAXTEMP \(minTemp)")
         }
  
     }

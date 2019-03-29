@@ -23,11 +23,11 @@ class WeatherFiveDay: Mappable {
     }
     
     func mapping(map: Map) {
-        date           <- map["list.dt_txt"]
-        maxTemp        <- map["list.main.temp_max"]
-        minTemp        <- map["list.main.temp_min"]
-        icon           <- map["list.weather.icon"]
-        description    <- map["list.weather.description"]
+        date           <- map["dt_txt"]
+        maxTemp        <- map["main.temp_max"]
+        minTemp        <- map["main.temp_min"]
+        icon           <- map["weather.icon"]
+        description    <- map["weather.description"]
     }
     
     func initialize(date:String, maxTemp: Int, minTemp: Int, description: String, icon: Any) -> WeatherFiveDay {
