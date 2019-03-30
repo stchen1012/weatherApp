@@ -1,18 +1,19 @@
 //
-//  Forecast.swift
+//  ForecastW.swift
 //  weatherApp
 //
-//  Created by Benny on 3/28/19.
+//  Created by Tracy Chen on 3/29/19.
 //  Copyright © 2019 Tracy. All rights reserved.
 //
+
 
 import Foundation
 import ObjectMapper
 
-class Forecast: Mappable {
+class ForecastW: Mappable {
     
-    var list: [Weather]?
-    v
+    var list: [WeatherFiveDay]?
+    
     required init?(map: Map) {
     }
     
@@ -20,8 +21,9 @@ class Forecast: Mappable {
         list <- map["list"]
     }
     
-    func initialize(list: [Weather]) -> Forecast {
+    func initialize(list: [WeatherFiveDay]) -> ForecastW {
         self.list = list
         return self
     }
 }
+

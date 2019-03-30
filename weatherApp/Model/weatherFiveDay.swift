@@ -39,3 +39,7 @@ class WeatherFiveDay: Mappable {
         return self
     }
 }
+
+
+
+

@@ -47,7 +47,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let apiKey = "5d97ae5f72b3ee49baa9c85ecf0c73f1"
         let cityName = "New%20York"
         
-    /*
+    
         AF.request("https://api.openweathermap.org/data/2.5/weather?APPID=\(apiKey)&q=\(cityName)&units=imperial").responseJSON
             { response in
                 print("Request: \(String(describing: response.request))")   // original url request
@@ -91,7 +91,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
                 
         }
-        */
+    
         
         
         AF.request("https://api.openweathermap.org/data/2.5/forecast?APPID=\(apiKey)&q=\(cityName)&units=imperial").responseJSON
@@ -113,13 +113,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     print("Data: \(utf8Text)") // original server data as UTF8 string
                 }
                 
-                let fiveDayWeather = Mapper<Forecast>().map(JSONObject: responseJSON)
-                print(fiveDayWeather!)
-//                let date = fiveDayWeather?.date
-//                let maxTemp = fiveDayWeather?.maxTemp
-//                let minTemp = fiveDayWeather?.minTemp
-//                print("THIS IS THE MAXTEMP \(maxTemp)")
-//                print("THIS IS THE MAXTEMP \(minTemp)")
+                
+                let list = Mapper<ForecastW>().map(JSONObject: responseJSON)
+                print("PRINT STATEMENT \(list)")
+                /*
+                let fiveDayWeatherList = list?.list as? [[String: Any]]
+                //print("this is the list from objectmapper 5 day list \(fiveDayWeatherList)")
+                //let fiveDayList = fiveDayWeatherList![0] // can pull main(max, min) description, icon
+                //print("this is the list from objectmapper 5 day list \(fiveDayList)")
+                print("PRINT STATEMENT \(fiveDayWeatherList)")
+                let oneDayMain = fiveDayWeatherList![0]["main"]
+                let oneDayTempMax = oneDayMain!["temp_max"]!
+ 
+ */
+                
         }
  
     }
@@ -147,7 +154,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return tableViewCell
     }
  */
-    
     
 }
 
