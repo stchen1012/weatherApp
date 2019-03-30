@@ -14,9 +14,10 @@ class Weather: Mappable {
     var currentTemp: Int?
     var maxTemp:Int?
     var minTemp:Int?
-    var description:[Any]?
+//    var description:[Any]?
     var sunrise:Double?
     var sunset:Double?
+    var description: [WeatherDescription]?
     
     required init?(map: Map) {
         
@@ -31,7 +32,7 @@ class Weather: Mappable {
         sunset         <- map["sys.sunset"]
     }
     
-    func initialize(currentTemp: Int, maxTemp: Int, minTemp: Int, description: [Any], sunrise: Double, sunset: Double) -> Weather {
+    func initialize(currentTemp: Int, maxTemp: Int, minTemp: Int, description: [WeatherDescription], sunrise: Double, sunset: Double) -> Weather {
         self.currentTemp = currentTemp
         self.maxTemp = maxTemp
         self.minTemp = minTemp

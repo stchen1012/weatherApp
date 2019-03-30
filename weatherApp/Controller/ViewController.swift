@@ -63,7 +63,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 guard let responseJSON = response.result.value as? [String: AnyObject] else {
                     print("Error reading response")
                     return
-                }
+                }                        
                 
                 let weatherData = Mapper<Weather>().map(JSONObject: responseJSON)
                 let currentTemp = weatherData?.currentTemp
@@ -71,18 +71,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 let maxTemp = weatherData?.maxTemp
                 let sunriseTime:Double = (weatherData?.sunrise)!
                 let sunriseDate = Date(timeIntervalSince1970: sunriseTime)
+                let dateFormatter = DateFormatter.init(withFormat: "hh:mm", locale: "")
+                var dateString = dateFormatter.string(from: sunriseDate)
+
 //                let dateFormatter = DateFormatter()
 //                dateFormatter.timeZone = TimeZone(abbreviation: "EST")
 //                dateFormatter.locale = NSLocale.current
 //                dateFormatter.dateFormat = "HH:mm"
 //                let sunriseStr = dateFormatter.string(from: weatherData?.sunrise)
-                let description = weatherData?.description as? [[String: Any]]
-                let descriptionValue = description![0]["description"]!
+                let descriptions = weatherData?.description ?? []
+                var descriptionValue = ""
+                if (descriptions.count > 0){
+                    descriptionValue = descriptions[0].description ?? ""
+                }
          
                 self.temp.text = "\(currentTemp ?? 0)°"
                 self.low.text = "L: \(minTemp ?? 0)°"
                 self.high.text = "H: \(maxTemp ?? 0)°"
-                self.rTime.text = "\(sunriseDate)"
+                self.rTime.text = "\(dateString)"
                 self.wDescription.text = "\(descriptionValue)"
                 
                 
