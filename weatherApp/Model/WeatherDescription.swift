@@ -34,4 +34,3 @@ class WeatherDescription: Mappable {
         return self
     }
 }
-

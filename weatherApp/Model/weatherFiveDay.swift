@@ -10,32 +10,18 @@ import Foundation
 import ObjectMapper
 
 class WeatherFiveDay: Mappable {
-    
-    var date: String?
-    var maxTemp:Int?
-    var minTemp:Int?
-    var description:String?
-    var icon: Any?
-    
-    
+    var listMain: [MainFive]
+
     required init?(map: Map) {
-        
+        self.listMain = []
     }
     
     func mapping(map: Map) {
-        date           <- map["dt_txt"]
-        maxTemp        <- map["main.temp_max"]
-        minTemp        <- map["main.temp_min"]
-        icon           <- map["weather.icon"]
-        description    <- map["weather.description"]
+        listMain       <- map["list"]
     }
     
-    func initialize(date:String, maxTemp: Int, minTemp: Int, description: String, icon: Any) -> WeatherFiveDay {
-        self.date = date
-        self.maxTemp = maxTemp
-        self.minTemp = minTemp
-        self.description = description
-        self.icon = icon
+    func initialize(listMain: [MainFive]) -> WeatherFiveDay {
+        self.listMain = listMain
         return self
     }
 }
