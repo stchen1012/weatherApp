@@ -14,7 +14,6 @@ class Weather: Mappable {
     var currentTemp: Int?
     var maxTemp:Int?
     var minTemp:Int?
-//    var description:[Any]?
     var sunrise:Double?
     var sunset:Double?
     var description: [WeatherDescription]?

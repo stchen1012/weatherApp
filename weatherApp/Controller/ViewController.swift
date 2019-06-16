@@ -160,7 +160,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //MAKE SURE YOU REMEMBER TO CLASSIFY "CELL" AS THE IDENTIFIER - FOR FUTURE REFERENCE - otherwise app crashes
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! myCollectionViewCell
 
         if fiveDayDatesArray.count == 5 || fiveDayDescArray.count == 5 || fiveDayTempMinArray.count == 5 || fiveDayTempMaxArray.count == 5  {
